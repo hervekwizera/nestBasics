@@ -19,7 +19,8 @@ export class BookController {
   
   @Post()
   addBook(@Body() book:Partial<Book>): Book {
-    
+    const bookData = book;
+    return this.booksService.create(bookData);
   }
 
 }

@@ -10,4 +10,8 @@ export class BooksService {
   findById(bookId:number): Book|undefined{
     return books.find((book) => book.id === bookId);
   }
+
+  create(book: Partial<Book>): Book{
+
+  }
 }
