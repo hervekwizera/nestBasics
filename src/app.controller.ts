@@ -14,7 +14,7 @@ export class BookController {
   @Get('getById/:id')
   getBookById(@Param('id') id:string): Book|undefined{
     const bookID = +id;
-    return this.booksService.findById(bookID)
+    return this.booksService.findById(bookID);
   }
   
   @Post()
