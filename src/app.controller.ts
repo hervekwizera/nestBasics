@@ -18,9 +18,11 @@ export class BookController {
   }
   
   @Post()
-  addBook(@Body() book:Partial<Book>): Book {
+  addBook(@Body() book:Partial<Book>): Book | undefined{
     const bookData = book;
-    return this.booksService.create(bookData);
+    if (!book.author || !book.title || !book.publicationYear) return undefined;
+
+    return this.booksService.create(bookData); 
   }
 
 }

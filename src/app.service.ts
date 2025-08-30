@@ -12,6 +12,14 @@ export class BooksService {
   }
 
   create(book: Partial<Book>): Book{
-
+     const newID = books[books.length -1].id + 1;
+    const newBook: Book = {
+      id: newID,
+      author: book.author?? '',
+      title: book.title?? '',
+      publicationYear: book.publicationYear?? 0,
+    }
+    books.push(newBook);
+     return  newBook;
   }
 }
