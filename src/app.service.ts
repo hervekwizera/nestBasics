@@ -40,4 +40,17 @@ export class BooksService {
 
     return books[bookIndex];
   }
+
+  delete(bookId: number): Book | undefined {
+  const bookIndex = books.findIndex((book) => book.id === bookId);
+
+  if (bookIndex === -1) {
+    return undefined; // Not found
+  }
+
+  const deletedBook = books[bookIndex];
+  books.splice(bookIndex, 1); // Remove from array
+  return deletedBook; // Return deleted book
+}
+
 }

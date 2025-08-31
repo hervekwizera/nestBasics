@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Body, Put } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, Put, Delete } from '@nestjs/common';
 import { BooksService } from './app.service';
 import { Book } from './FakeDatabase';
 
@@ -31,5 +31,12 @@ export class BookController {
   ): Book | undefined {
     const bookID = +id;
     return this.booksService.update(bookID, updatedData);
+  }
+
+  // ✅ Delete endpoint
+  @Delete(':id')
+  deleteBook(@Param('id') id: string): Book | undefined {
+    const bookID = +id;
+    return this.booksService.delete(bookID);
   }
 }
